@@ -26,7 +26,7 @@ that's not the case
 
 So from what I understand:
 
-- `async` is like `setTimeout 0`, execute the script later when ready, but always only after initial render (next batch)
+- `async` is like `setTimeout 0`, execute the script later when ready, but always only after initial render (next batch). EDIT: This is when I try on Chrome, when I try on Safari, I get a different behavior: `async` and `defer` both block initial render when the parsing happens too fast (since we only have 1 `h1` element here), so the above diagram might be correct for Safari, but I guess that's not the specified standard so we have different behaviors on different browsers.
 - whereas with `defer`, it can be run in the initial render if ready, or next batch, depending on availability
 
 Either way, one thing for sure is `async` and `defer` are for resources that are not critical for the initial render.
